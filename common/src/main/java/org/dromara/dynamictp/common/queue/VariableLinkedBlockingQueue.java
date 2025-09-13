@@ -225,7 +225,7 @@ public class VariableLinkedBlockingQueue<E> extends AbstractQueue<E>
      */
     private E dequeue() {
         // assert takeLock.isHeldByCurrentThread();
-        // assert head.item == null;
+        // assert head.item == null;    head不包含task  这里是把first中的item返回   然后item置为null 作为head
         Node<E> h = head;
         Node<E> first = h.next;
         h.next = h; // help GC
